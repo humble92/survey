@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:300,400,400i,500,700&amp;subset=latin,vietnamese,latin-ext,cyrillic,greek,cyrillic-ext,greek-ext');
+@import url('https://fonts.googleapis.com/css?family=Product+Sans&amp;subset=latin,vietnamese,latin-ext,cyrillic,greek,cyrillic-ext,greek-ext');
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #ede7f6;
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+}
+  
+#container {
+    padding: 5px;
+    margin: 20px auto;
+}
+
+.formContainer {
+	margin: auto;
+	max-width: 90vw;
+	width: 640px
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+.formOuterContainer {
+    margin: auto;
+    max-width: 90vw;
+    width: 640px;
+}
+
+.themeStripe {
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	height: 10px;
+	left: -1px;
+	position: absolute;
+	top: -1px;
+	width: calc(100% + 2px);
+    background-color: rgb(103, 58, 183);
+    color: rgba(255, 255, 255, 1);
+}
+
+.surveyHeader {
+	margin-top: 12px;
+	background-color: #fff;
+	border: 1px solid #dadce0;
+	border-radius: 8px;
+	margin-bottom: 12px;
+	padding: 24px;
+	padding-top: 22px;
+	position: relative
+}
+
+.surveyHeader>div {
+	padding-left: 5px;
+	padding-right: 0
+}
+
+.surveyTitle {
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 40px;
+    color: #202124;
+    line-height: 135%;
+    max-width: 100%;
+    min-width: 0%;
+}
+
+.surveyDesc {
+    font-family: Roboto,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: .2px;
+    line-height: 20px;
+    color: #202124;
+    margin-top: 12px;
+}
+
+.qItemContainer {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	page-break-inside: avoid
+}
+
+.qItemSubContainer {
+    background-color: #fff;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    width: 100%;
+    padding: 24px;
+    margin-top: 0;
+    page-break-inside: avoid;
+}
+
+.qItemTitle {
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.radioGroup {
+    display: flex;
+    justify-content: space-around;
+}
+
+.scaleLabel {
+    padding: 0 5px;
+    padding-top: 42px;
+}
+
+.radioBtnContainer {
+    position: relative;
+}
+
+.radioBtnContainer label, .radioBtnContainer input{
+    display: block;
+}
+
+.radioBtnContainer label{
+    text-align: center;
+}
+
+.radiobtn {
+    position: absolute;
+    height: 23px;
+    width: 23px;
+    background-color: #eee;
+    border-radius: 50%;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.radioGroupContainer .radiobtn {
+    top: 35px;
+    left: -11px;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    height: 22.5px;
+    width: 22.5px;
+    background-color: #eee;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    border: 1px solid #673ab7;
+}
+
+.radioGroupContainer .checkmark {
+    top: 37px;
+    left: -8px;
+}
+
+.radioGroupItem .checkmark {
+    left: 2px;
+}
+
+/* On mouse-over, add a grey background color */
+.radioBtnContainer:hover input {
+    filter: sepia(1);
+}
+
+/* Show checkmark when checked */
+.radioBtnContainer input:checked ~ .checkmark {
+    display: block;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radioBtnContainer input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radioBtnContainer .checkmark:after {
+    top: 5.5px;
+    left: 5.5px;
+    width: 12.5px;
+    height: 12.5px;
+    border-radius: 50%;
+    background: #673ab7;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.tableRow {
+	display: table-row;
+}
+
+.tableCell {
+    display: table-cell;
+    height: 2.5em;
+    min-width: 48px;
+    padding: .25em;
+    text-align: center;
+    width: 120px;
+}
+
+.headerCell {
+    min-width: 48px;
+    max-width: 288px;
+    padding: 8px;
+    text-align: left;
+}
+
+.responseCell {
+    padding-left: 1.25em;
+}
+
+.surveyTitleRslt {
+    margin-bottom: 25px;
+}
+
+.surveyCategory {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: inline-block;
+    min-width: 190px;
+}
+
+.surveyCategory, .surveyResultMe, .surveyResultTotal, .surveyResultCnt {
+    margin-left: 12px;
+    padding-bottom: 8px;
+}
+
+.surveyResultCntE0 {
+    padding-top: 5px;
+}
+
+.surveyResultTotal {
+    color: rgb(47, 47, 197);
+}
+
+.surveyResultMe {
+    margin-top: 10px;
+    color: rgb(241, 40, 40);
+}
+
+.space {
+    display: inline-block;
+    width: 75px;
+}
+
+.btnContainer {
+    text-align: right;
+}
+
+.button {
+	border-radius: 6px;
+    background-color: #673ab7;
+    border: none;
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
