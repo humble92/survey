@@ -44,13 +44,24 @@
           </div>
 
           <div class="btnContainer">
-            <input type="hidden" name="survey_id" value="<?php echo $survey['id']?>">
+            <input type="hidden" name="survey_id" id="survey_id" value="<?php echo $survey['id']?>">
             <input type="hidden" name="q_total" value="<?php echo ($i + 1)?>">
-            <input type="hidden" name="mode" value="v">
-            <div role="button" class="button" onclick="javascript:document.getElementById('f').submit();" tabindex="0">
-                <span class="">Submit</span>
+            <input type="hidden" name="mode" id="mode" value="s">
+            <div class="btnContainerLeft">
+              <div role="button" class="button buttonReset" onclick="javascript:document.getElementById('f').reset();">
+                  <span class="">Reset</span>
+              </div>
+              <div role="button" class="button buttonResult" onclick="viewResult(document.getElementById('survey_id').value)">
+                  <span class="">Result</span>
+              </div>
+            </div>
+            <div class="btnContainerRight">
+              <div role="button" class="button" onclick="javascript:document.getElementById('f').submit();" tabindex="0">
+                  <span class="">Submit</span>
+              </div>
             </div>
           </div>
+
         </div>
       </form>
     </div>

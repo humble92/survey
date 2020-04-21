@@ -24,8 +24,8 @@ foreach ($questionList1 as $qRow) {
 
 
 //Answer model
-include (dirname(__FILE__) . '/../model/Answer.php');
-$model = new AnswerModel($pdo, $survey['id']);
+include (dirname(__FILE__) . '/../include/analysis_numeric_survey.php');
+
 $responseList = $model->getResponses();
 foreach ($responseList as $row) {
     $arr = json_decode($row[0], true);
@@ -56,6 +56,26 @@ foreach ($responseList as $row) {
 }
 $totalCategories['Pleasantness'] = $totalCategories['Pleasant feelings'] - $totalCategories['Unpleasant feelings'];
 $totalCategories['Activation'] = $totalCategories['Activated feelings'] - $totalCategories['Deactived feelings'];
+
+
+//my categorized result
+for($l = 1; $l <= count($answer); $l++) {
+  if($q_type[$l]->Pleasant) {
+    $userCategories['Pleasant feelings'] += $answer['q'.$l];
+  }
+  if($q_type[$l]->Unpleasant) {
+    $userCategories['Unpleasant feelings'] += $answer['q'.$l];
+  }
+  if($q_type[$l]->Activated) {
+    $userCategories['Activated feelings'] += $answer['q'.$l];
+  }
+  if($q_type[$l]->Deactived) {
+    $userCategories['Deactived feelings'] += $answer['q'.$l];
+  }
+}
+$userCategories['Pleasantness'] = $userCategories['Pleasant feelings'] - $userCategories['Unpleasant feelings'];
+$userCategories['Activation'] = $userCategories['Activated feelings'] - $userCategories['Deactived feelings'];
+
 
 $responses_detail = json_encode(['total' => $result, 'each' => $each]);
 $responses = json_decode($responses_detail, true);

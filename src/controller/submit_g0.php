@@ -1,7 +1,7 @@
 <?php
 //Answer model
-include (dirname(__FILE__) . '/../model/Answer.php');
-$model = new AnswerModel($pdo, $survey['id']);
+include (dirname(__FILE__) . '/../include/analysis_numeric_survey.php');
+
 $responseList = $model->getResponses();
 foreach ($responseList as $row) {
   $arr = json_decode($row[0], true);

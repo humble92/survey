@@ -250,7 +250,12 @@ body {
 }
 
 .btnContainer {
-    text-align: right;
+}
+.btnContainerLeft {
+    float: left;
+}
+.btnContainerRight {
+    float: right;
 }
 
 .button {
@@ -266,3 +271,10 @@ body {
     margin: 4px 2px;
     cursor: pointer;
 }
+.buttonReset {
+    background-color: #6e8fe8;
+}
+.buttonResult {
+    background-color: #54e688;
+}
+
