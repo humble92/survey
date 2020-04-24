@@ -17,5 +17,4 @@ try {
 }
 
 $survey = $stmt->fetch(PDO::FETCH_ASSOC);
-//error_log($survey['id'], 3, dirname(__FILE__) . "/../../log/debug.log");
 check_var($survey['id'], "[3] No valid survey exists.");

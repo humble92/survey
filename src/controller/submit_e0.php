@@ -51,8 +51,10 @@ foreach ($responseList as $row) {
     $result[] = number_format(array_sum($arr) / count($arr), 2);
 
     //each question statistics
-    for($i = 1; $i <= count($arr); $i++)
-        $each[$i] += $arr['q'.$i];
+    for($i = 1; $i <= count($arr); $i++) {
+      $each[$i] += $arr['q'.$i];
+      $each_detail[$i][] = $arr['q'.$i];
+    }
 }
 $totalCategories['Pleasantness'] = $totalCategories['Pleasant feelings'] - $totalCategories['Unpleasant feelings'];
 $totalCategories['Activation'] = $totalCategories['Activated feelings'] - $totalCategories['Deactived feelings'];
@@ -77,9 +79,10 @@ $userCategories['Pleasantness'] = $userCategories['Pleasant feelings'] - $userCa
 $userCategories['Activation'] = $userCategories['Activated feelings'] - $userCategories['Deactived feelings'];
 
 
-$responses_detail = json_encode(['total' => $result, 'each' => $each]);
+$responses_detail = json_encode(['total' => $result, 'each' => $each, 'each_detail' => $each_detail]);
 $responses = json_decode($responses_detail, true);
 $t_average = number_format(array_sum($responses['total']) / count($responses['total']), 2);
+$sd = Stand_Deviation($result);
 
 
 //view

@@ -5,12 +5,18 @@
 
           <div class="surveyHeader">
             <div class="surveyTitle surveyTitleRslt" dir="auto" role="heading">“<?php echo $survey['name']?>”</div>
-            <?php foreach ($categories as $c): ?>
+            <?php foreach ($categories as $c): 
+              if(strpos($c, "feelings")) continue;
+            ?>
               <div>
                 <span class="surveyCategory"><?php echo $c?></span>
                 <span class="surveyResultMe" dir="auto">My answer: <?php echo number_format($userCategories[$c]/$item_num_per_category, 2)?></span>
                 <span class="space"></span>
-                <span class="surveyResultTotal" dir="auto">Average: <?php echo number_format($totalCategories[$c]/($item_num_per_category * count($responses['total'])), 2)?></span>
+                <span class="surveyResultTotal" dir="auto">
+                  Average: <?php echo number_format($totalCategories[$c]/($item_num_per_category * count($responses['total'])), 2)?>
+                  (SD: <?php echo $sd?>)
+                </span>
+
               </div>
             <?php endforeach ?>
             <div class="surveyResultCnt surveyResultCntE0" dir="auto">Total responses: <?php echo count($responses['total'])?></div>
@@ -33,7 +39,10 @@
                       <div class="tableCell headerCell"><?php echo $row['q']?></div>
                       <span class="surveyResultMe" dir="auto">My answer: <?php echo $answer['q'.$i]?></span>
                       <span class="space"></span>
-                      <span class="surveyResultTotal" dir="auto">Average: <?php echo number_format($responses['each'][$i]/count($responses['total']), 2)?></span>
+                      <span class="surveyResultTotal" dir="auto">
+                        Average: <?php echo number_format($responses['each'][$i]/count($responses['total']), 2)?>
+                        (SD:<?php echo Stand_Deviation($responses['each_detail'][$i])?>)
+                      </span>
                     </div>
                     <?php $i++; ?>
                   <?php endforeach ?>

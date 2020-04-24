@@ -2,3 +2,5 @@
 config/*
 log/*
 *.log
+admin/vendor
+admin/composer.lock

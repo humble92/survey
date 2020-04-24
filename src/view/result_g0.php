@@ -4,7 +4,7 @@
 
           <div class="surveyHeader">
             <div class="surveyTitle" dir="auto" role="heading">“<?php echo $survey['name']?>”</div>
-            <div class="surveyResultTotal" dir="auto">Total average: <?php echo $t_average?></div>
+            <div class="surveyResultTotal" dir="auto">Total average: <?php echo $t_average?> (SD: <?php echo $sd?>)</div>
             <div class="surveyResultCnt" dir="auto">Total responses: <?php echo count($responses['total'])?></div>
           </div>
           
@@ -14,7 +14,10 @@
               <div role="listitem" class="qItemSubContainer">
                 <div class="qItemTitle" role="heading">Q<?php echo ++$i.' '.$row['q'];?></div>
 
-                <div class="surveyResultTotal" dir="auto">Average: <?php echo number_format($responses['each'][$i]/count($responses['total']), 2)?></div>
+                <div class="surveyResultTotal" dir="auto">
+                  Average: <?php echo number_format($responses['each'][$i]/count($responses['total']), 2)?>
+                  (SD:<?php echo Stand_Deviation($responses['each_detail'][$i])?>)
+                </div>
 
               </div>
             </div>
