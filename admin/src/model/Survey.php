@@ -3,6 +3,17 @@ class SurveyModel
 {
     protected $db;
 
+    protected $id;
+    protected $name;
+    protected $type;
+    protected $explanation;
+    protected $is_public;
+    protected $start_date;
+    protected $end_date;
+    
+    protected $nLevel;
+
+    
     public function __construct(PDO $db)
     {
         $this->db = $db;
@@ -10,6 +21,11 @@ class SurveyModel
 
     public function getAllSurveys() {
         return $this->db->query('SELECT * FROM survey order by id desc');
+    }
+
+    public function getSurvey($id) {
+        $stmt = $this->db->query('SELECT * FROM survey where id = ' . $id);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function getSurveyTypes() {
@@ -30,13 +46,13 @@ class SurveyModel
             (`type`, name, explanation, creator_id, is_public, start_date, end_date, cfg)
             VALUES('{$data['sType']}', '{$data['name']}', '{$data['desc']}', 1, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', {$cfg});
         ";
-        error_log(print_r($sql,true), 3, __DIR__ . '/../../../log/debug.log');
+        //error_log(print_r($sql,true), 3, __DIR__ . '/../../../log/debug.log');
         return $this->db->query($sql);
     }
 
     // Gets surveys list including specific characters from the database
-    function searchSurvey($word) {
-        error_log($word, 3, dirname(__FILE__) . "/../../log/debug.log");
+    public function searchSurvey($word) {
+        //error_log($word, 3, dirname(__FILE__) . "/../../log/debug.log");
         $sql = "SELECT * from survey where name like :word or explanation like :word order by id desc";
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(':word', '%'.$word.'%');
@@ -45,7 +61,7 @@ class SurveyModel
     }
 
     // Delete specific survey and relevant data from the database
-    function dupSurvey($id) {
+    public function dupSurvey($id) {
         $this->db->query("INSERT INTO survey (`type`, name, explanation, creator_id, is_public, start_date, end_date, cfg)
             SELECT `type`, name, explanation, creator_id, is_public, start_date, end_date, cfg
             FROM survey WHERE id = " . $id);
@@ -56,7 +72,7 @@ class SurveyModel
     }
     
     // Delete specific survey and relevant table from the database
-    function deleteSurvey($id) {
+    public function deleteSurvey($id) {
         $this->db->query("DELETE from answer where survey_id = " . $id);
         $this->db->query("DELETE from question where survey_id = " . $id);
         return $this->db->query("DELETE from survey where id = " . $id);

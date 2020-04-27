@@ -20,7 +20,7 @@ $input = filter_var_array( json_decode( $_POST["json"], true ), [
                  'flags'  => FILTER_NULL_ON_FAILURE ],
     'sType' => FILTER_SANITIZE_STRING
 ] );
-//error_log(print_r($inputs,true), 3, __DIR__ . '/../../log/debug.log');
+//error_log(print_r($input,true), 3, __DIR__ . '/../../log/debug.log');
 
 $model = new SurveyModel($pdo);
 $data = $model->addSurvey($input);

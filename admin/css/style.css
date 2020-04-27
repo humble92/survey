@@ -23,7 +23,7 @@
     /* border: 1px solid rgb(162, 145, 191); */
     text-align: center;
 }
-input[type=text] {
+input[type=text], input[type=number] {
   width: 80%;
   padding: 6px 20px;
   border-color:#ccc;
@@ -51,6 +51,7 @@ button {
     font-size: x-large;
     font-weight: 600;
     margin-bottom: 20px;
+    text-align: center;
 }
 #addFormContainer {
     width: 460px;
@@ -101,6 +102,30 @@ button {
     font-family: 'Lato', sans-serif;
     font-size: medium;
 }
+
+.btnContainer {
+    display: flex;
+    justify-content: center;
+}
+.btnContainerRight {
+    float: right;
+}
+.button {
+	border-radius: 6px;
+    background-color: #673ab7;
+    border: none;
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+}
+.btnContainerRight .button {
+    background-color: #44b73a;
+}
 .btn {
     margin-top: 15px;
     height: 40px;
@@ -123,4 +148,24 @@ button {
 }
 .blue {
     background-color: #323ba5
+}
+
+.formLabel {
+    font-size: large;
+    float: left;
+    width: 25%;
+    margin: 8px auto;
+}
+#formContainer input[type=text], #formContainer input[type=number] {
+    width: 70%;
+    border-color:#d2d2d2;
+    margin: 3px auto;
+}
+
+.qContainer {
+    margin: 10px 0;
+}
+#formContainer .sItem {
+    width: 50% !important;
+    margin-right: 10px !important;
 }

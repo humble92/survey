@@ -202,6 +202,7 @@ function addSurveyToList(o) {
     //div
     let node = document.createElement("div");
     node.setAttribute("class", "card clearfix");
+    node.setAttribute("data-type", sType);
     node.setAttribute("id", uid);
     
     //span
@@ -244,7 +245,7 @@ function addSurveyToList(o) {
     //button : manage
     btnNode = document.createElement("button");
     btnNode.setAttribute("class", "btn darkGreen");
-	btnNode.setAttribute("onclick","manageSurvey(this)");
+	btnNode.setAttribute("onclick","manageQuestion(this)");
     btnNode.textContent = "Manage";
     btnContainer.appendChild(btnNode);
 
@@ -260,4 +261,14 @@ function addSurveyToList(o) {
     //Append and display
     let parent = document.getElementById("list");
     parent.appendChild(node);
+}
+
+function manageQuestion(btn) {
+    let id = btn.parentNode.parentNode.id;
+    let sType = btn.parentNode.parentNode.getAttribute("data-type");
+
+    let url = window.location.protocol + '//' 
+            + window.location.hostname + ':' 
+            + window.location.port + `/survey/admin/index.php?id=${id}&sType=${sType}`;
+    window.open(url);
 }

@@ -2,15 +2,6 @@
 session_start();
 $_SESSION["AdminUI"] = "true";
 
-include (__DIR__ . '/../model/Survey.php');
-$model = new SurveyModel($pdo);
-$surveyTypes = $model->getSurveyTypes();
-$surveys = $model->getAllSurveys();
-
-foreach($surveyTypes as $row):
-    $typeArray[] = $row['type'];
-endforeach;
-
 // Create new Plates instance
 $templates = new League\Plates\Engine(__DIR__ . '/../view/template');
 
