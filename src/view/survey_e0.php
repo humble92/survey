@@ -56,7 +56,7 @@
               </div>
             </div>
             <div class="btnContainerRight">
-              <div role="button" class="button" onclick="javascript:document.getElementById('f').submit();" tabindex="0">
+              <div role="button" class="button" onclick="javascript:saveResponse();document.getElementById('f').submit();" tabindex="0">
                   <span class="">Submit</span>
               </div>
             </div>
