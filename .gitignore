@@ -1,7 +1,14 @@
 .idea
+
 .vscode
+
 config/*
+
 log/*
+
 *.log
-admin/vendor
-admin/composer.lock
+
+/admin/vendor
+
+/admin/composer.lock
+

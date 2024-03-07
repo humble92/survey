@@ -44,7 +44,7 @@ class SurveyModel
 
         $sql = "INSERT INTO survey
             (`type`, name, explanation, creator_id, is_public, start_date, end_date, cfg)
-            VALUES('{$data['sType']}', '{$data['name']}', '{$data['desc']}', 1, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', {$cfg});
+            VALUES('{$data['sType']}', '{$data['name']}', '{$data['desc']}', 1, 1, now(), '9999-01-01 00:00:01', {$cfg});
         ";
         //error_log(print_r($sql,true), 3, __DIR__ . '/../../../log/debug.log');
         return $this->db->query($sql);
@@ -62,8 +62,8 @@ class SurveyModel
 
     // Delete specific survey and relevant data from the database
     public function dupSurvey($id) {
-        $this->db->query("INSERT INTO survey (`type`, name, explanation, creator_id, is_public, start_date, end_date, cfg)
-            SELECT `type`, name, explanation, creator_id, is_public, start_date, end_date, cfg
+        $this->db->query("INSERT INTO survey (`type`, name, explanation, creator_id, is_public, cfg)
+            SELECT `type`, name, explanation, creator_id, is_public, cfg
             FROM survey WHERE id = " . $id);
     
         return $this->db->query("INSERT INTO question (survey_id, q, q_type, mc_choices, answer_key)

@@ -14,7 +14,7 @@
     <div id="addFormContainer">
         <form method="post" action="">
             <input type="text" id="name" name="name" maxlength="500" placeholder="Survey Name"/>
-            <input type="text" id="desc" name="desc" maxlength="500" placeholder="About survey"/>
+            <input type="text" id="desc" name="desc" maxlength="1000" placeholder="About survey"/>
             <input type="text" id="sType" name="sType" maxlength="2" placeholder="Survey type [e.g. <?= $types?>]"/>
 
             <button id="btnAdd" type="button">Save</button>

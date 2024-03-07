@@ -11,6 +11,6 @@ class QuestionModel
     }
 
     public function getAllQuestions() {
-        return $this->db->query('SELECT * FROM question where survey_id = ' . $this->survey_id);
+        return $this->db->query('SELECT * FROM question where survey_id = ' . $this->survey_id . ' order by id');
     }
 }
